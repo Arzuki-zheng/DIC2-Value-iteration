@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Iteration Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Value Iteration Visualizer</h1>
+            <p>Interactive 5x5 Grid MDP Solver</p>
+        </header>
+
+        <main>
+            <div class="grid-container">
+                <div id="grid" class="grid"></div>
+            </div>
+
+            <div class="controls">
+                <div class="mode-selectors">
+                    <button id="btn-start" class="mode-btn active" onclick="setMode('start')">Set Start</button>
+                    <button id="btn-end" class="mode-btn" onclick="setMode('end')">Set End</button>
+                    <button id="btn-block" class="mode-btn" onclick="setMode('block')">Set Block</button>
+                </div>
+                
+                <div class="action-buttons">
+                    <button id="btn-solve" class="solve-btn" onclick="runValueIteration()">Run Value Iteration</button>
+                    <button id="btn-reset" class="reset-btn" onclick="resetGrid()">Reset Policy</button>
+                </div>
+
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <ul>
+                        <li><span class="box start"></span> Start Position</li>
+                        <li><span class="box end"></span> Goal Position</li>
+                        <li><span class="box block"></span> Obstacle</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
